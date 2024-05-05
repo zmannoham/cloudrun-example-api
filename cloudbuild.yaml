@@ -10,3 +10,6 @@ steps:
            '--image=us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}',
            '--region=us-central1',
            '--allow-unauthenticated']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
