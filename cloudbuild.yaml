@@ -7,6 +7,6 @@ steps:
   # Docker push to Artifact Registry
   - name: google/cloud-sdk
     args: ['gcloud', 'run', 'deploy', 'cloudrun-example',
-           '--image=us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}'
+           '--image=us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}',
            '--region=us-central1',
            '--allow-unauthenticated']
