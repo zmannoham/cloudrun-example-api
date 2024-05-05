@@ -2,8 +2,8 @@
 FROM python:3.12-slim-bookworm
 
 # Set environment variables
-ENV PORT=8080
-ENV HOST=0.0.0.0
+#ENV PORT=8080
+# ENV HOST=0.0.0.0
 
 # Set working directory inside the container
 WORKDIR /app
@@ -21,6 +21,6 @@ COPY . /app
 EXPOSE ${PORT}
 
 # Set the entrypoint command to run gunicorn
-CMD gunicorn app:app -w 2 --threads 2 -b ${HOST}:${PORT}
+CMD gunicorn app:app -w 2 --threads 2 -b 0.0.0.0:${PORT}
 
 
