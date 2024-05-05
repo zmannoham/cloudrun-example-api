@@ -5,6 +5,10 @@ steps:
     'us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}', '.']
 
   # Docker push to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}']
+
+  # Deploy on Cloud Run
   - name: google/cloud-sdk
     args: ['gcloud', 'run', 'deploy', 'cloudrun-example',
            '--image=us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}',
