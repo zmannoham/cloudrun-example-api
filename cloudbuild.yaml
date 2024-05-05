@@ -1,0 +1,12 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t',
+    'us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}', '.']
+
+  # Docker push to Artifact Registry
+  - name: google/cloud-sdk
+    args: ['gcloud', 'run', 'deploy', 'cloudrun-example',
+           '--image=us-central1-docker.pkg.dev/${PROJECT_ID}/docker-repository/cloudrun-example:${SHORT_SHA}'
+           '--region=us-central1',
+           '--allow-unauthenticated']
