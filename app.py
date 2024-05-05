@@ -7,4 +7,4 @@ def drizzy():
 
 @app.route('/jimmy')
 def jimmy():
-    return render_template('templates/base.html')
+    return render_template('base.html')
